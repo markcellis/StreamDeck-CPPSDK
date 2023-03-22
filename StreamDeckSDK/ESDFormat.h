@@ -18,7 +18,7 @@
 namespace ESD {
 using std::format;
 template <class... Args>
-using basic_format_string = std::_Basic_format_string<Args...>;
+using basic_format_string = std::basic_format_string<Args...>;
 }// namespace ESD
 #else
 #include <fmt/format.h>
