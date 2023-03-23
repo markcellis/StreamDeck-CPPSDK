@@ -87,6 +87,15 @@ void ESDPlugin::DialRotateForAction(
   }
 }
 
+void ESDPlugin::TouchTabForAction(
+  const std::string& inAction,
+  const std::string& inContext,
+  const nlohmann::json& inPayload,
+  const std::string& inDeviceID)
+{
+  // ToDo, we should hook this up to the action
+}
+
 void ESDPlugin::WillAppearForAction(
   const std::string& inAction,
   const std::string& inContext,
