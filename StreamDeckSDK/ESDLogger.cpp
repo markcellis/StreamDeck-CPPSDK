@@ -14,7 +14,11 @@
 
 namespace {
 ESDConnectionManager* sConnectionManager = nullptr;
+
+;
 }// namespace
+
+bool ESDLogger::disableDebugLogging = false;
 
 void ESDLogger::SetConnectionManager(ESDConnectionManager* conn) {
   sConnectionManager = conn;

@@ -21,6 +21,8 @@ class ESDLogger final {
   static void LogMessage(const std::string& context, const std::wstring& message);
 #endif
 
+  static bool disableDebugLogging;
+
  private:
   static void LogToStreamDeckSoftware(const std::string& message);
   static void LogToSystem(const std::string& message);
@@ -62,7 +64,11 @@ void ESDLogWithContext(
 #endif
 
 #ifndef NDEBUG
-#define ESDDebug ESDLog
+#ifdef _MSC_VER
+#define ESDDebug(...) if(!ESDLogger::disableDebugLogging)  ESDLogWithContext(__FILE__, __VA_ARGS__)
+#else
+#define ESDDebug(...) if(!ESDLogger::disableDebugLogging) ESDLogWithContext(__FILE__, ##__VA_ARGS__)
+#endif
 #else
 template <class... Args>
 inline void ESDDebug(Args&&...) {
