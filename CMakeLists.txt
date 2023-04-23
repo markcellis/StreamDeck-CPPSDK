@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.21)
 
 project(com.fredemmott.streamdeckcppsdk VERSION 3.0.0 LANGUAGES CXX)
 
+set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build architectures for mac OS X" FORCE)
+
 if (PROJECT_IS_TOP_LEVEL)
   set(CMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH NO)
   if (MSVC)
