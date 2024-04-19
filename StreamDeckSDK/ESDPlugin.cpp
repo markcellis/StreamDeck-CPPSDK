@@ -66,6 +66,34 @@ void ESDPlugin::DialPressForAction(
     action->DialUp(inPayload["settings"]);
 }
 
+void ESDPlugin::DialDownForAction(
+  const std::string& inAction,
+  const std::string& inContext,
+  const json& inPayload,
+  const std::string& inDeviceID) {
+  auto action = GetOrCreateAction(inAction, inContext);
+  if (!action) {
+    ESDLog("No action for dialDown - {} {}", inAction, inContext);
+    return;
+  }
+
+  action->DialDown(inPayload["settings"]);
+}
+
+void ESDPlugin::DialUpForAction(
+  const std::string& inAction,
+  const std::string& inContext,
+  const json& inPayload,
+  const std::string& inDeviceID) {
+  auto action = GetOrCreateAction(inAction, inContext);
+  if (!action) {
+    ESDLog("No action for dialUp - {} {}", inAction, inContext);
+    return;
+  }
+
+  action->DialUp(inPayload["settings"]);
+}
+
 void ESDPlugin::DialRotateForAction(
   const std::string& inAction,
   const std::string& inContext,
